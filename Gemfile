@@ -48,7 +48,8 @@ gem 'devise'
 gem 'cancancan'
 gem 'jsbundling-rails'
 gem 'cssbundling-rails'
-
+gem "rolify"
+gem "figaro"
 
 # Use Sass to process CSS
 # gem "sassc-rails"

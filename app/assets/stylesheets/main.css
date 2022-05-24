@@ -1,0 +1,12 @@
+a{
+    text-decoration: none;
+}
+
+.navbar-right{
+    position: relative;
+    margin-left: 750px;
+}
+
+img{
+    border-radius: 50%;
+}
