@@ -10,9 +10,11 @@
         <li class="nav-item">
         <%= link_to "Home", "/", class: "nav-link" %>
         </li>
+        <% if current_user %>
         <li class="nav-item">
           <%= link_to "Posts", "/", class: "nav-link" %>
         </li>
+        <% end %>
         <li class="nav-item">
           <%= link_to "About", "/", class: "nav-link" %>
         </li>
