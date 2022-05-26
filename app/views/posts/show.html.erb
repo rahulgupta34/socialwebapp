@@ -1,0 +1,57 @@
+
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-3">
+        <p>Id</p>
+    </div>
+
+    <div class="col-lg-3">
+        <%= @post.id %>
+    </div>
+
+</div>
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-3">
+        <p>Title</p>
+    </div>
+
+    <div class="col-lg-3">
+        <%= @post.title %>
+    </div>
+
+</div>
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-3">
+        <p>Body</p>
+    </div>
+
+    <div class="col-lg-3">
+        <%= @post.body %>
+    </div>
+
+</div>
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-3">
+        <p>Picture</p>
+    </div>
+
+    <div class="col-lg-3">
+        <%= image_tag(@post.picture, size:"50x50") %>
+    </div>
+
+</div>
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-3">
+         <%= link_to "Back to posts", posts_path, class:"btn btn-success" %>
+    </div>
+
+</div>

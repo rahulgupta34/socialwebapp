@@ -1,0 +1,15 @@
+<div id="<%= dom_id post %>">
+    <tr>
+        <th scope="row"><%= post.id %></th>
+        <td><%= post.title %></td>
+        <td><%= post.body %></td>
+        <td>
+            <% if post.picture.image? %>
+                <%= image_tag(post.picture, size:"50x50") %>
+            <% end %>
+        </td>
+        <td><%= link_to "Show", post_path(post), class: "btn btn-primary" %></td>
+        <td><%= link_to "Edit", edit_post_path(post), class: "btn btn-primary" %></td>
+        <td><%= button_to "Delete", post_path(post), class: "btn btn-danger", method: :delete %></td>
+    </tr>
+</div>
