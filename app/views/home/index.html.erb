@@ -1,5 +1,29 @@
 <% content_for :head do %>
-  Home
+    Home
 <% end %>
 
+<% if Post.count > 0 %>
+<div class="row m-2">
+    <% Post.all.each do |post|  %>
+        <div class="col-lg-3 mt-2">
+            <div class="card" style="width: 18rem;">
+            <%= image_tag(post.picture,size:"150x150",class:"card-img-top rounded") %>
+                    <div class="card-body">
+                        <h5 class="card-title"><%= post.title %></h5>
+                        <p class="card-text"><%= post.body %></p>
+                        <div class="row">
+                          <div class="col-lg-3">
+                        <%= link_to "Comment", "/comment", class:"btn btn-primary " %>
+                          </div>
+                           <div class="col-lg-3" style="margin-left: 50px;">
+                        <%= button_to "Delete", post_path(post.id), class:"btn btn-primary ", method: :delete %>
+                          </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+<% end %>
 
