@@ -1,4 +1,6 @@
 <h1 class="text-center text-success mt-4">Editing post</h1>
-
+<% content_for :head do  %>
+    Edit Post |<%= @post.id %>
+<% end %>
 <%= render "form", post: @post %>
 

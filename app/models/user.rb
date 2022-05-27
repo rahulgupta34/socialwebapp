@@ -2,6 +2,7 @@ class User < ApplicationRecord
   rolify
 
   has_many :posts
+  has_many :comments
   has_one_attached :image
   validates :image, presence: true
   # Include default devise modules. Others available are:

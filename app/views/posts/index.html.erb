@@ -1,6 +1,8 @@
 
 <h1>Posts</h1>
-
+<% content_for :head do  %>
+    Posts
+<% end %>
 <div id="posts">
     <%= link_to "New post", new_post_path, class:"btn btn-success m-3" %>
     <table class="table">

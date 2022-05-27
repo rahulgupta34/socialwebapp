@@ -10,7 +10,8 @@
                 <li class="nav-item">
                     <%= link_to "Home", "/", class: "nav-link" %>
                 </li>
-                <% if current_user.has_role? :admin  %>
+
+                <% if current_user %>
                     <li class="nav-item">
                         <%= link_to "Posts", posts_path, class: "nav-link" %>
                     </li>
