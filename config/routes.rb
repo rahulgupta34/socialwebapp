@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'replies/new'
+  get 'replies/edit'
   get 'comments/new'
   
   devise_for :users, :controllers => {:registrations => "registrations"}
@@ -10,5 +12,8 @@ Rails.application.routes.draw do
   resources :posts do 
     resources :comments 
   end
-  
+
+  resources :comments do
+    resources :replies, only: %i[ new create edit update delete ]
+  end
 end

@@ -17,3 +17,10 @@ img{
     outline: none;
     margin-top: -80px;
 }
+
+.btn_reply{
+   
+    border: none;
+    outline: none;
+   display: inline-block;
+}

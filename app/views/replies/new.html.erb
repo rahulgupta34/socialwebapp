@@ -1,0 +1,29 @@
+<h1 class="text-center ">
+    Reply the comment
+    <span class="text-success"><%= Comment.find(params[:comment_id]).body
+ %></span>
+
+<% content_for :head do%>
+   Add Reply
+<% end %>
+
+</h1>
+<p class="text-center text-primary ">Add Reply</p>
+<%= form_with model: @reply,url: comment_replies_path  do |form| %>
+    <div class="row justify-content-center">
+        <div class="col-lg-3">
+            <div class="form-group">
+                <%= form.label :body, style: "display: block" %>
+                <%= form.text_field :body, class:"form-control" %>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mt-3">
+        <div class="col-lg-3">
+            <%= form.submit "Add Reply", class:"btn btn-success" %>
+        </div>
+    </div>
+
+
+<% end %>
