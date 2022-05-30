@@ -9,7 +9,16 @@
             <% end %>
         </td>
         <td><%= link_to "Show", post_path(post), class: "btn btn-primary" %></td>
-        <td><%= link_to "Edit", edit_post_path(post), class: "btn btn-primary" %></td>
-        <td><%= button_to "Delete", post_path(post), class: "btn btn-danger", method: :delete %></td>
+        <td>
+        
+            <% if can? :edit, post %>
+                <%= link_to "Edit", edit_post_path(post), class: "btn btn-primary" %>
+            <% end %>
+        </td>
+        <td>
+            <% if can? :destroy, post %>
+                <%= button_to "Delete", post_path(post), class: "btn btn-danger", method: :delete %>
+            <% end %>
+        </td>
     </tr>
 </div>

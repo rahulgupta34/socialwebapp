@@ -45,7 +45,7 @@ gem 'factory_bot_rails'
 gem 'faker'
 gem 'rspec-rails'
 gem 'devise'
-gem 'cancancan'
+gem "cancancan"
 gem 'jsbundling-rails'
 gem 'cssbundling-rails'
 gem "rolify"

@@ -12,42 +12,56 @@
         <div class="col-lg-4">
             <% @post.comments.order(id: :desc).each do |comment| %>
                 <p>
-                   <b>Comment Body</b> <%= comment.body %>
+                    <b>Comment Body</b>
+                    <%= comment.body %>
                 </p>
-                 <% comment.replies.order(id: :desc).each do |reply|%>
-                 <p>
-                   <b>Reply Body</b> <%= reply.body %>
-                </p>
-
-                 <p>
-                   <%= link_to "Edit Reply", edit_comment_reply_path(comment.id,reply.id) %>
-                   <%= button_to "Delete Reply", comment_reply_path(comment.id,reply.id), method: :delete, class: "btn_reply" %>
+                <% comment.replies.order(id: :desc).each do |reply|%>
+                <p>
+                    <b>Reply Body</b>
+                    <%= reply.body %>
                 </p>
 
                 <p>
-                   <%= time_ago_in_words(reply.updated_at) + " age" %>
+                    <% if can? :edit, comment %>
+                        <%= link_to "Edit Reply", edit_comment_reply_path(comment.id,reply.id) %>
+                    <% end %>
+                    <% if can? :destroy, comment %>
+                        <%= button_to "Delete Reply", comment_reply_path(comment.id,reply.id), method: :delete, class: "btn_reply" %>
+                    <% end %>
                 </p>
 
-                <% end %>
+                <p>
+                    <%= time_ago_in_words(reply.updated_at) + " ago" %>
+                </p>
 
-                <div class="row">
-                    <div class="m-2">
-                        <b>Commentor Email </b>- <%= comment.commentor_email %>
-                    </div>
-                    <div class="mt-2">
-                        <%= link_to "Edit", edit_post_comment_path(@post,comment.id) %>
-                        <%= link_to "Reply", new_comment_reply_path(comment.id), style: "margin-left: 90px;" %>
-                       
-                        <%= button_to "Delete", post_comment_path(@post,comment.id), method: :delete, class: "btn_class" %>
-                    </div>
-                    <div class="m-2">
-                    <p> <i> <%= time_ago_in_words(comment.updated_at) + " ago" %> </i></p>
-                    </div>
-                    <div class=""></div>
-                </div>
             <% end %>
-        </div>
+
+            <div class="row">
+                <div class="m-2">
+                    <b>Commentor Email
+                    </b>-
+                    <%= comment.commentor_email %>
+                </div>
+                <div class="mt-2">
+                    <% if can? :destroy, comment %>
+                        <%= link_to "Edit", edit_post_comment_path(@post,comment.id) %>
+                    <% end %>
+
+                    <%= link_to "Reply", new_comment_reply_path(comment.id), style: "margin-left: 90px;" %>
+
+                    <% if can? :destroy, comment %>
+                        <%= button_to "Delete", post_comment_path(@post,comment.id), method: :delete, class: "btn_class" %>
+                    <% end %>
+                </div>
+                <div class="m-2">
+                    <p>
+                        <i>
+                            <%= time_ago_in_words(comment.updated_at) + " ago" %>
+                        </i>
+                    </p>
+                </div>
+                <div class=""></div>
+            </div>
+        <% end %>
     </div>
-
-
-</div>
+</div></div>
