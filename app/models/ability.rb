@@ -31,6 +31,10 @@ class Ability
           reply.user_id == user.id
         end
 
+        can :create, Reply do |reply|
+          reply.user_id == user.id
+        end
+
       end
     # 
     # The first argument to `can` is the action you are giving the user
