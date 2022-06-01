@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-lg-3">
+        <div class="form-group">
+            <%= f.label :address %>
+            <%= f.text_field :address, class:"form-control" %>
+        </div>
+    </div>
+    <div class="row justify-content-center" data-controller="hello">
+        <div class="col-lg-3">
+            <div class="form-group">
+                <%= f.label :country %>
+                <%= f.select :country, CS.countries.invert, { prompt: "Select Country"}, class:"form-select", data: { action: "change->hello#change" } %>
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <div class="form-group">
+                <%= f.label :state %>
+                <%= f.text_field :state, class:"form-control" %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-center m-4">
+    <div class="col-lg-3">
+        <div class="form-group">
+            <%= f.label :pincode %>
+            <%= f.number_field :pincode, class:"form-control" %>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="form-group">
+            <%= f.label :landmark %>
+            <%= f.text_field :landmark ,class:"form-select" %>
+            <div class="row justify-content-center">
+                <%= link_to_remove_association "Delete", f %>
+            </div>
+        </div>
+    </div>
+</div>
+

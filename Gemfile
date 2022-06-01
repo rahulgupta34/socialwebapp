@@ -50,7 +50,9 @@ gem 'jsbundling-rails'
 gem 'cssbundling-rails'
 gem "rolify"
 gem "figaro"
-
+gem "cocoon"
+gem "jquery-rails"
+gem "city-state"
 # Use Sass to process CSS
 # gem "sassc-rails"
 
