@@ -1,0 +1,25 @@
+<%= turbo_frame_tag :modal do %>
+    <h1 class="text-center text-sucess m-4">Add Category</h1>
+    <div data-controller="hello" data-action="turbo:submit-end->hello#submitEnd">
+        <%= form_with model: @category, url: "/category", remote: true do |form| %>
+       <% @category.errors.full_messages_for(:name).each do |error| %>
+        <p class="text-center text-danger m-1"> <%= error %> </p>
+       <% end %>
+            <div class="row justify-content-center">
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        <%= form.label :name %>
+                        <%= form.text_field :name, class: "form-control" %>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center mt-4">
+                <div class="col-lg-3">
+                    <%= form.submit "Add Category", class: "btn btn-success" %>
+                </div>
+            </div>
+
+        <% end %>
+    </div>
+<% end %>

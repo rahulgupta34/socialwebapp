@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  get 'replies/new'
-  get 'replies/edit'
-  get 'comments/new'
-  
+
   devise_for :users, :controllers => {:registrations => "registrations"}
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -16,4 +13,6 @@ Rails.application.routes.draw do
   resources :comments do
     resources :replies, only: %i[ new create edit update delete ]
   end
+  
+  resources :category, only: %i[ index new create edit update ]
 end

@@ -47,8 +47,9 @@
                         <%= link_to "Edit", edit_post_comment_path(@post,comment.id) %>
                     <% end %>
 
-                    <%= link_to "Reply", new_comment_reply_path(comment.id), style: "margin-left: 90px;" %>
-
+                    <% if can? :new, comment %>
+                        <%= link_to "Reply", new_comment_reply_path(comment.id), style: "margin-left: 90px;" %>
+                    <% end %>
                     <% if can? :destroy, comment %>
                         <%= button_to "Delete", post_comment_path(@post,comment.id), method: :delete, class: "btn_class" %>
                     <% end %>

@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>
-      <%= yield :head %>
-    </title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <head>
+        <title>
+            <%= yield :head %>
+        </title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= stylesheet_link_tag "main" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-  </head>
+        <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+        <%= stylesheet_link_tag "main" %>
+        <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    </head>
 
-  <body>
-  <%= render "menu/menubar" %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-   
-    <%= yield %>
-     
-   
-  </body>
+    <body>
+        <%= render "menu/menubar" %>
+        <%= turbo_frame_tag :modal %>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+
+        <%= yield %>
+
+
+    </body>
 </html>
